@@ -1,6 +1,14 @@
+# SystemVerilog FIFO Verification Testbench
+
+> Transaction-level verification environment for a 64-deep, 8-bit synchronous FIFO with constrained random testing and OOP-based architecture.
+
+---
+
 ## Overview
 
-This repository contains a complete SystemVerilog testbench for verifying a Circular Synchronous FIFO design. The testbench demonstrates transaction-level modeling using object-oriented programming concepts including classes, virtual interfaces, constrained randomization, and mailbox communication.
+This repository contains a complete SystemVerilog testbench for verifying a synchronous FIFO design. The testbench demonstrates transaction-level modeling using object-oriented programming concepts including classes, virtual interfaces, constrained randomization, and mailbox communication.
+
+---
 
 ## Features
 
@@ -51,6 +59,8 @@ Transaction                   FIFO_if
     └── tb               # Top-level testbench module
 ```
 
+---
+
 ## Design Specifications
 
 | Parameter | Value |
@@ -72,6 +82,33 @@ Transaction                   FIFO_if
 - `count[6:0]` - Current occupancy
 - `buffer_empty` - Empty flag
 - `buffer_full` - Full flag
+
+---
+
+## Usage
+
+### Compilation and Simulation
+
+**ModelSim/QuestaSim:**
+```bash
+vlog -sv FIFO.sv testbench.sv
+vsim -c tb -do "run -all; quit"
+```
+
+**With GUI:**
+```bash
+vsim tb
+run -all
+```
+
+**Vivado Simulator:**
+```tcl
+xvlog -sv FIFO.sv testbench.sv
+xelab tb -debug typical
+xsim work.tb -R
+```
+
+---
 
 ## Testbench Operation
 
@@ -147,19 +184,39 @@ Transaction                   FIFO_if
 - Generator and driver run simultaneously
 - Non-blocking process initiation
 
+---
+
+## Protocol Timing
+
+### Write Operation
+```
+CLK    : __|‾‾|__|‾‾|__|‾‾|__
+WR_EN  : ______|‾‾‾‾‾|_______
+BUF_IN : ------<DATA>--------
+```
+
+### Read Operation
+```
+CLK     : __|‾‾|__|‾‾|__|‾‾|__
+RD_EN   : ______|‾‾‾‾‾|_______
+BUF_OUT : ----------<OUT>-----
+                   ↑ Valid
+```
+
+---
 
 ## Verification Status
 
 | Feature | Status |
 |---------|--------|
-| Interface-based connectivity done
-| Transaction class with randomization done
-| Generator with mailbox done
-| Driver with virtual interface done
-| Reset task done
-| Concurrent read-write testing done
-| Random stimulus generation done
-| Response monitoring done
+| Interface-based connectivity | done |
+| Transaction class with randomization | done |
+| Generator with mailbox | done |
+| Driver with virtual interface | done |
+| Reset task | done |
+| Concurrent read-write testing | done |
+| Random stimulus generation | done |
+| Response monitoring | done |
 
 ---
 
@@ -178,5 +235,14 @@ Transaction                   FIFO_if
 
 MIT License - See LICENSE file for details
 
+---
 
-**Last Updated**: 11th November 2025
+## Author
+
+[Your Name]  
+[Your Email]  
+[GitHub Profile]
+
+---
+
+**Last Updated**: November 2024
