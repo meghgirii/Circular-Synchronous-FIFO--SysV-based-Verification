@@ -87,26 +87,6 @@ Transaction                   FIFO_if
 
 ## Usage
 
-### Compilation and Simulation
-
-**ModelSim/QuestaSim:**
-```bash
-vlog -sv FIFO.sv testbench.sv
-vsim -c tb -do "run -all; quit"
-```
-
-**With GUI:**
-```bash
-vsim tb
-run -all
-```
-
-**Vivado Simulator:**
-```tcl
-xvlog -sv FIFO.sv testbench.sv
-xelab tb -debug typical
-xsim work.tb -R
-```
 
 ---
 
@@ -186,24 +166,7 @@ xsim work.tb -R
 
 ---
 
-## Protocol Timing
 
-### Write Operation
-```
-CLK    : __|‾‾|__|‾‾|__|‾‾|__
-WR_EN  : ______|‾‾‾‾‾|_______
-BUF_IN : ------<DATA>--------
-```
-
-### Read Operation
-```
-CLK     : __|‾‾|__|‾‾|__|‾‾|__
-RD_EN   : ______|‾‾‾‾‾|_______
-BUF_OUT : ----------<OUT>-----
-                   ↑ Valid
-```
-
----
 
 ## Verification Status
 
@@ -222,27 +185,14 @@ BUF_OUT : ----------<OUT>-----
 
 ## Requirements
 
-- **Simulator**: ModelSim/QuestaSim, VCS, or Vivado Simulator
+- **Simulator**: VCS- EDA Playground
 - **Language**: SystemVerilog (IEEE 1800-2017)
 - **Minimum Version**: 
-  - ModelSim 10.7+
   - VCS 2020.03+
   - Vivado 2021.1+
 
 ---
 
-## License
 
-MIT License - See LICENSE file for details
-
----
-
-## Author
-
-[Your Name]  
-[Your Email]  
-[GitHub Profile]
-
----
 
 **Last Updated**: November 2024
