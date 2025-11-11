@@ -152,14 +152,14 @@ Transaction                   FIFO_if
 
 | Feature | Status |
 |---------|--------|
-| Interface-based connectivity 
-| Transaction class with randomization 
-| Generator with mailbox 
-| Driver with virtual interface 
-| Reset task 
-| Concurrent read-write testing 
-| Random stimulus generation 
-| Response monitoring 
+| Interface-based connectivity done
+| Transaction class with randomization done
+| Generator with mailbox done
+| Driver with virtual interface done
+| Reset task done
+| Concurrent read-write testing done
+| Random stimulus generation done
+| Response monitoring done
 
 ---
 
